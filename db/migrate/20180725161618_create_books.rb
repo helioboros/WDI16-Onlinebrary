@@ -3,11 +3,11 @@ class CreateBooks < ActiveRecord::Migration[5.2]
     create_table :books do |t|
       t.string :title
       t.string :cover
-      t.array :authors
+      t.string :authors
       t.string :publisher
-      t.array :subjects
-      t.array :excerpts
-      t.array :links
+      t.string :subjects
+      t.string :excerpts
+      t.string :links
 
       t.timestamps
     end
