@@ -52,7 +52,7 @@ class App extends Component {
             <Router>
                 <div>
                     <Switch>
-                        <Route exact path="/signUp" render={SignUpLogInComponent}/>
+                        <Route exact path="/signUp" render={SignUpLoginComponent}/>
                     </Switch>
 
                     {this.state.signedIn ? null : <Redirect to="/signUp"/>}
