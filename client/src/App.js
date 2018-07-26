@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
 import SignUpLogin from './components/SignUpLogin'
 import axios from 'axios'
-import {saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "./util/SessionHeaderUtil"
+import {clearAuthTokens, saveAuthTokens, setAxiosDefaults, userIsLoggedIn} from "./util/SessionHeaderUtil"
 
 class App extends Component {
 
@@ -47,6 +47,20 @@ class App extends Component {
             })
     
         } catch (error) {
+            console.log(error)
+        }
+    }
+
+    signOut = async (event) => {
+        try {
+            event.preventDefault()
+            
+            await axios.delete('/auth/sign_out')
+    
+            clearAuthTokens();
+    
+            this.setState({signedIn: false})
+        } catch(error) {
             console.log(error)
         }
     }
