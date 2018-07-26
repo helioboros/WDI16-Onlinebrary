@@ -39,11 +39,11 @@ class App extends Component {
             saveAuthTokens(response.headers)
             
     
-            const posts = await this.getPosts()
+            const books = await this.getBooks()
     
             this.setState({
                 signedIn: true,
-                posts
+                books
             })
     
         } catch (error) {
@@ -69,14 +69,14 @@ class App extends Component {
         try {
             const signedIn = userIsLoggedIn()
     
-            let posts = []
+            let books = []
             if (signedIn) {
                 setAxiosDefaults()
-                posts = await this.getPosts()
+                books = await this.getBooks()
             }
     
             this.setState({
-                posts,
+                books,
                 signedIn,
             })
         } catch(error) {
@@ -98,6 +98,7 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/signUp" render={SignUpLoginComponent}/>
                     </Switch>
+                    <button onClick={this.signOut}>Sign Out</button>
 
                     {this.state.signedIn ? null : <Redirect to="/signUp"/>}
                 </div>
