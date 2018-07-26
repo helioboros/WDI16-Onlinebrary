@@ -39,11 +39,11 @@ class App extends Component {
             saveAuthTokens(response.headers)
             
     
-            const books = await this.getBooks()
+            // const books = await this.getBooks()
     
             this.setState({
                 signedIn: true,
-                books
+                // books
             })
     
         } catch (error) {
@@ -69,14 +69,14 @@ class App extends Component {
         try {
             const signedIn = userIsLoggedIn()
     
-            let books = []
+            // let books = []
             if (signedIn) {
                 setAxiosDefaults()
-                books = await this.getBooks()
+            //     books = await this.getBooks()
             }
     
             this.setState({
-                books,
+                // books,
                 signedIn,
             })
         } catch(error) {
